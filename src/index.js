@@ -1,12 +1,28 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import AppRouter from "./routers/AppRouter";
+import { Provider } from "react-redux";
+import AppRouter, { history } from "./routers/AppRouter";
+import configureStore from "./store/configureStore";
+import { login, logout } from "./actions/auth";
 import "./styles/styles.scss";
-import "./vendors/firebase";
+import { auth } from "./vendors/firebase";
 
-ReactDOM.render(
-  <React.StrictMode>
+const store = configureStore();
+
+const jsx = (
+  <Provider store={store}>
     <AppRouter />
-  </React.StrictMode>,
-  document.getElementById("root")
+  </Provider>
 );
+
+ReactDOM.render(jsx, document.getElementById("root"));
+
+auth.onAuthStateChanged((user) => {
+  if (user) {
+    store.dispatch(login(user.uid));
+    history.push("/dashboard");
+  } else {
+    store.dispatch(logout());
+    history.push("/");
+  }
+});

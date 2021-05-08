@@ -1,9 +1,16 @@
 import React from "react";
+import { connect } from "react-redux";
+import { startLogout } from "../actions/auth";
 
-const DashboardPage = () => (
+const DashboardPage = ({ startLogout }) => (
   <div>
-    <h1>Dashboard page content</h1>
+    <h1>Dashboard</h1>
+    <button onClick={startLogout}>Logout</button>
   </div>
 );
 
-export default DashboardPage;
+const mapDispatchToProps = (dispatch) => ({
+  startLogout: () => dispatch(startLogout()),
+});
+
+export default connect(undefined, mapDispatchToProps)(DashboardPage);
