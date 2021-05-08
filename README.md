@@ -16,9 +16,9 @@ add `FAST_REFRESH=true` to `.env` file
 
 `npm install bootstrap`\
 `npm install react-bootstrap`\
-`npm install node-sass`\
+`npm install node-sass`
 
-add `@import "~bootstrap/scss/bootstrap";` to `styles.scss` file\
+add `@import "~bootstrap/scss/bootstrap"` to `styles.scss` file\
 import `styles.scss` to `src/index.js`
 
 ## Available Scripts
