@@ -21,6 +21,13 @@ add `FAST_REFRESH=true` to `.env` file
 add `@import "~bootstrap/scss/bootstrap"` to `styles.scss` file\
 import `styles.scss` to `src/index.js`
 
+### `Install Bootstrap`
+
+`npm install firebase`\
+
+add firebase config parameters to `.env` file\
+Initialize firebase
+
 ## Available Scripts
 
 In the project directory, you can run:
